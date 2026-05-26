@@ -1,9 +1,10 @@
 import streamlit as st
-from google import genai
 import os
 import time
+# Use this exact import for the 2026 Google GenAI SDK
+import google.genai as genai 
 
-# 1. Setup
+# 1. Setup the Client properly
 api_key = os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
