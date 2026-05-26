@@ -17,45 +17,52 @@ st.set_page_config(page_title="PESCE Elite Assistant", page_icon="✨")
 
 st.markdown("""
     <style>
-    /* 1. LOCK THE ENTIRE PAGE TO DARK */
+    /* 1. UNIVERSAL DARK THEME LOCK */
     .stApp {
         background-color: #0E1117 !important;
         color: #FFFFFF !important;
     }
 
-    /* 2. FORCE ALL TEXT TO WHITE */
+    /* 2. FORCE TEXT VISIBILITY */
     h1, h2, h3, p, span, li, label, .stMarkdown {
         color: #FFFFFF !important;
     }
 
-    /* 3. PREMIUM GLASSMORPHISM BUBBLES (Locked) */
+    /* 3. FIX THE INPUT BAR (The "Shitty" Part) */
+    /* Target the container */
+    [data-testid="stChatInput"] {
+        background-color: #1B2028 !important;
+        border-radius: 15px !important;
+        padding: 10px !important;
+    }
+
+    /* Target the actual text area */
+    .stChatInput textarea {
+        background-color: #262730 !important;
+        color: white !important;
+        caret-color: white !important;
+    }
+
+    /* Target the placeholder text (the "Ask about..." text) */
+    .stChatInput textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+        opacity: 1 !important;
+    }
+
+    /* 4. PREMIUM BUBBLES */
     .stChatMessage {
         background-color: rgba(255, 255, 255, 0.05) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
         border-radius: 15px;
-        margin-bottom: 10px;
     }
 
-    /* 4. LOCK THE INPUT BOX COLORS */
-    .stChatInput textarea {
-        background-color: #1B2028 !important;
-        color: white !important;
-        border: 1px solid rgba(66, 133, 244, 0.5) !important;
-    }
-
-    /* 5. ASSISTANT GLOW EFFECT */
+    /* 5. ASSISTANT GLOW */
     [data-testid="stChatMessageAssistant"] {
         background-color: rgba(66, 133, 244, 0.1) !important;
         border-left: 5px solid #4285F4 !important;
-        box-shadow: 0 0 20px rgba(66, 133, 244, 0.1);
     }
 
-    /* 6. HIDE LIGHT MODE ELEMENTS */
-    [data-testid="stHeader"] {
-        background: rgba(0,0,0,0) !important;
-    }
-    
     /* GRADIENT TITLE */
     h1 {
         background: linear-gradient(45deg, #4285F4, #34A853);
