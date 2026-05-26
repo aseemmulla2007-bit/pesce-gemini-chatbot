@@ -15,52 +15,52 @@ client = genai.Client(api_key=api_key)
 # 2. Animated UI Polish
 st.set_page_config(page_title="PESCE Elite Assistant", page_icon="✨")
 
-# CSS for Animations and Theme Locking
 st.markdown("""
     <style>
-    /* Force Dark Theme even in Light Mode */
+    /* 1. LOCK THE ENTIRE PAGE TO DARK */
     .stApp {
         background-color: #0E1117 !important;
         color: #FFFFFF !important;
     }
-    
-    /* Ensure all text stays white */
-    .stMarkdown, p, h1, h2, h3, span {
+
+    /* 2. FORCE ALL TEXT TO WHITE */
+    h1, h2, h3, p, span, li, label, .stMarkdown {
         color: #FFFFFF !important;
     }
 
-    /* Fix Chat Bubbles for Light Mode visibility */
+    /* 3. PREMIUM GLASSMORPHISM BUBBLES (Locked) */
     .stChatMessage {
-        animation: fadeIn 0.5s ease-out;
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0.07) !important;
+        background-color: rgba(255, 255, 255, 0.05) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        color: #FFFFFF !important;
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        margin-bottom: 10px;
     }
-    
-    /* Make the input box stand out */
+
+    /* 4. LOCK THE INPUT BOX COLORS */
     .stChatInput textarea {
         background-color: #1B2028 !important;
         color: white !important;
-        border: 1px solid #4285F4 !important;
+        border: 1px solid rgba(66, 133, 244, 0.5) !important;
     }
 
-    /* Assistant specific styling */
+    /* 5. ASSISTANT GLOW EFFECT */
     [data-testid="stChatMessageAssistant"] {
         background-color: rgba(66, 133, 244, 0.1) !important;
         border-left: 5px solid #4285F4 !important;
+        box-shadow: 0 0 20px rgba(66, 133, 244, 0.1);
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+    /* 6. HIDE LIGHT MODE ELEMENTS */
+    [data-testid="stHeader"] {
+        background: rgba(0,0,0,0) !important;
     }
-
+    
+    /* GRADIENT TITLE */
     h1 {
-        background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
+        background: linear-gradient(45deg, #4285F4, #34A853);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-weight: 800;
     }
     </style>
     """, unsafe_allow_html=True)
