@@ -15,27 +15,45 @@ client = genai.Client(api_key=api_key)
 # 2. Animated UI Polish
 st.set_page_config(page_title="PESCE Elite Assistant", page_icon="✨")
 
-# CSS for Animations
+# CSS for Animations and Theme Locking
 st.markdown("""
     <style>
-    .stApp { background-color: #0E1117; color: #FFFFFF; }
-    
-    /* Fade-in animation for chat bubbles */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+    /* Force Dark Theme even in Light Mode */
+    .stApp {
+        background-color: #0E1117 !important;
+        color: #FFFFFF !important;
     }
+    
+    /* Ensure all text stays white */
+    .stMarkdown, p, h1, h2, h3, span {
+        color: #FFFFFF !important;
+    }
+
+    /* Fix Chat Bubbles for Light Mode visibility */
     .stChatMessage {
         animation: fadeIn 0.5s ease-out;
         border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.07) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #FFFFFF !important;
     }
     
-    /* Soft pulse for Assistant messages */
+    /* Make the input box stand out */
+    .stChatInput textarea {
+        background-color: #1B2028 !important;
+        color: white !important;
+        border: 1px solid #4285F4 !important;
+    }
+
+    /* Assistant specific styling */
     [data-testid="stChatMessageAssistant"] {
-        background-color: rgba(66, 133, 244, 0.05);
-        border-left: 5px solid #4285F4;
-        box-shadow: 0 0 15px rgba(66, 133, 244, 0.1);
+        background-color: rgba(66, 133, 244, 0.1) !important;
+        border-left: 5px solid #4285F4 !important;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
