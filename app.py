@@ -1,10 +1,14 @@
 import streamlit as st
 import os
 import time
-# Use this exact import for the 2026 Google GenAI SDK
-import google.genai as genai 
 
-# 1. Setup the Client properly
+# Use this specific import style for Streamlit Cloud stability
+try:
+    from google import genai
+except ImportError:
+    import google.genai as genai
+
+# Setup the Client
 api_key = os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
