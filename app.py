@@ -17,57 +17,52 @@ st.set_page_config(page_title="PESCE Elite Assistant", page_icon="✨")
 
 st.markdown("""
     <style>
-    /* 1. UNIVERSAL DARK THEME LOCK */
+    /* 1. CASUAL LIGHT THEME */
     .stApp {
-        background-color: #0E1117 !important;
-        color: #FFFFFF !important;
+        background-color: #FFFFFF !important;
+        color: #262730 !important;
     }
 
-    /* 2. FORCE TEXT VISIBILITY */
-    h1, h2, h3, p, span, li, label, .stMarkdown {
-        color: #FFFFFF !important;
+    /* 2. SOFT BLUE ACCENTS & READABLE TEXT */
+    h1 {
+        color: #4285F4 !important; /* Google Blue */
+        font-weight: 700;
+    }
+    
+    p, span, li, .stMarkdown {
+        color: #3C4043 !important;
     }
 
-    /* 3. FIX THE INPUT BAR (The "Shitty" Part) */
-    /* Target the container */
-    [data-testid="stChatInput"] {
-        background-color: #1B2028 !important;
-        border-radius: 15px !important;
-        padding: 10px !important;
-    }
-
-    /* Target the actual text area */
-    .stChatInput textarea {
-        background-color: #262730 !important;
-        color: white !important;
-        caret-color: white !important;
-    }
-
-    /* Target the placeholder text (the "Ask about..." text) */
-    .stChatInput textarea::placeholder {
-        color: rgba(255, 255, 255, 0.5) !important;
-        opacity: 1 !important;
-    }
-
-    /* 4. PREMIUM BUBBLES */
+    /* 3. CLEAN CHAT BUBBLES */
     .stChatMessage {
-        background-color: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        backdrop-filter: blur(12px);
+        background-color: #F1F3F4 !important; /* Light Grey */
+        border: none !important;
         border-radius: 15px;
+        margin-bottom: 10px;
+        color: #3C4043 !important;
     }
 
-    /* 5. ASSISTANT GLOW */
+    /* 4. ASSISTANT BUBBLE (Subtle Blue) */
     [data-testid="stChatMessageAssistant"] {
-        background-color: rgba(66, 133, 244, 0.1) !important;
+        background-color: #E8F0FE !important; /* Very Light Blue */
         border-left: 5px solid #4285F4 !important;
     }
 
-    /* GRADIENT TITLE */
-    h1 {
-        background: linear-gradient(45deg, #4285F4, #34A853);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    /* 5. THE INPUT BAR (Clean & Visible) */
+    [data-testid="stChatInput"] {
+        background-color: #FFFFFF !important;
+        border-top: 1px solid #DADCE0 !important;
+    }
+
+    .stChatInput textarea {
+        background-color: #F1F3F4 !important;
+        color: #202124 !important;
+        border-radius: 10px !important;
+    }
+
+    /* Fix placeholder text for Light Mode */
+    .stChatInput textarea::placeholder {
+        color: #70757A !important;
     }
     </style>
     """, unsafe_allow_html=True)
